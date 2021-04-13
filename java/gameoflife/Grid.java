@@ -40,10 +40,10 @@ public class Grid {
         }
     }
     public int searchNeibour(boolean type) {
-        //On parcour le tableau de cells autour d'un cellule pour lui trouver un voisin
+        //On parcourt le tableau de cells autour d'un cellule pour lui trouver un voisin
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-                //On verifie que on sort pas en dehors de notre grille comme [-1][-1] ou au dessu de la taille de Grid
+                //On verifie qu'on sort pas en dehors de notre grille comme par exemple [-1][-1] ou au dessu de la taille de sizeGrid
                 if (column + i >= 0 && line + j >= 0 && column + i < sizeGrid && line + j < sizeGrid) {
                     //Si il trouve un cellule voisine en vie count+=1
                     if (cells[column + i][line + j].isAlive() == true) {
@@ -65,9 +65,9 @@ public class Grid {
             for (line = 0; line < sizeGrid; line++) {
         //
                 count = 0;
-                //On initialise nextCell par raport a la cellule de cells
+                //On initialise nextCell par rapport a la cellule de cells
                 nextCells[column][line] = new Cell(cells[column][line].isAlive());
-                //on fait la fonction pour chercher des voisins en vie en foction de l'etat de la cellule & et appele setIsAlive pour
+                //on fait la fonction pour chercher des voisins en vie en fonction de l'etat de la cellule & et appele setIsAlive pour
                 //modifier la cellule en fonction des regles du jeu et on ecrit dans nextCells
                 if (cells[column][line].isAlive() == true) {
                     rsltNei = searchNeibour(true);
@@ -84,7 +84,7 @@ public class Grid {
     }
     public String toString() {
         String[] test= new String[sizeGrid];
-        //On parcour le le tableau de nextCell
+        //On parcourt le le tableau de nextCell
         for (int i = 0; i <  sizeGrid; i++) {
             for (int j = 0; j < sizeGrid; j++) {
                 test[j] = nextCells[i][j].toString();
